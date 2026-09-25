@@ -1,14 +1,16 @@
 / {
     aliases {
-        led0 = &led0;
+        app-led = &my_led;
     };
 
     leds {
         compatible = "gpio-leds";
 
-        led0: led_0 {
-            gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
+        my_led: led_0 {
+            gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>; // connected led to pin 26 on breadboard
             label = "GPIO26 LED";
         };
     };
 };
+
+// esp 32 led app overlay
