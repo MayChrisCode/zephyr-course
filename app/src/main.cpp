@@ -3,6 +3,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <stdio.h>
+#include <our_driver.h>
 
 
 
@@ -22,6 +23,7 @@ LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 int main(void)
 {
     bool led_state = true;
+    int set_value = 0;
 
 
     if (!device_is_ready(dev)) {
@@ -34,16 +36,18 @@ int main(void)
 
         if (led_state)
         {
+            our_driver_set_param(dev, set_value);
             sensor_sample_fetch(dev);
             led_state = false;
         }
         else
         {
+            our_driver_set_param(dev, set_value);
             sensor_channel_get(dev, SENSOR_CHAN_ALL, NULL);
             led_state = true;
         }
 
-        
+        set_value += 1;
 
         k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
 ;
