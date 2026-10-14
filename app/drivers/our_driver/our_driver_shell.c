@@ -1,5 +1,9 @@
 #include <zephyr/shell/shell.h>
 #include <zephyr/drivers/sensor.h>
+#include <our_driver.h>
+
+#define MINIMUM 10
+#define MAXIMUM 100
 
 static const struct device *dev = DEVICE_DT_GET_ANY(our_driver);
 
@@ -15,6 +19,25 @@ static int cmd_read_handler(const struct shell *shell, int argc, char **argv)
 {
     sensor_channel_get(dev, SENSOR_CHAN_ALL, NULL);
     shell_print(shell, "hello from get handler");
+    return 0;
+}
+
+static int cmd_set_param_handler(const struct shell *shell, int argc, char **argv)
+{
+
+    int new_value = atoi(argv[1]);
+
+    if (new_value < MINIMUM || new_value > MAXIMUM)
+    {
+        shell_print(shell, "Value must be between %d and %d", MINIMUM, MAXIMUM);
+        return -EINVAL;
+    }
+    else
+    {
+        shell_print(shell, "Value is valid: %d", new_value);
+        our_driver_set_param(dev, 42);
+    }
+
     return 0;
 }
 
@@ -42,6 +65,7 @@ SHELL_STATIC_SUBCMD_SET_CREATE(sub_sensorroot,
     SHELL_CMD_ARG(fetch, NULL, "Get Sample value for our driver", cmd_fetch_handler,1,0),
     SHELL_CMD_ARG(read, NULL, "Get Channel for our driver", cmd_read_handler,1,0),
     SHELL_CMD_ARG(info, NULL, "Info about our driver", cmd_info_handler,1,0),
+    SHELL_CMD_ARG(set_param, NULL, "Set parameter for our driver", cmd_set_param_handler,2,0),
     SHELL_SUBCMD_SET_END
 );
 
