@@ -25,6 +25,7 @@ static int cmd_read_handler(const struct shell *shell, int argc, char **argv)
 static int cmd_set_param_handler(const struct shell *shell, int argc, char **argv)
 {
 
+    //comment for new commit for task 02 as I forgot to commit it for task 01
     int new_value = atoi(argv[1]);
 
     if (new_value < MINIMUM || new_value > MAXIMUM)
