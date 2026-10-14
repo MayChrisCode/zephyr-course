@@ -14,7 +14,7 @@
 
 
 
-const struct device *dev = DEVICE_DT_GET_ANY(our_driver);
+static const struct device *dev = DEVICE_DT_GET_ANY(our_driver);
 
 
 
@@ -30,24 +30,24 @@ int main(void)
         LOG_ERR("Device not ready");
         return -ENODEV;
     }
-
+    our_driver_set_param(dev, set_value);
 
     while (1) {
 
         if (led_state)
         {
-            our_driver_set_param(dev, set_value);
-            sensor_sample_fetch(dev);
+            //our_driver_set_param(dev, set_value);
+            //sensor_sample_fetch(dev);
             led_state = false;
         }
         else
         {
-            our_driver_set_param(dev, set_value);
-            sensor_channel_get(dev, SENSOR_CHAN_ALL, NULL);
+            //our_driver_set_param(dev, set_value);
+            //sensor_channel_get(dev, SENSOR_CHAN_ALL, NULL);
             led_state = true;
         }
 
-        set_value += 1;
+        //set_value += 1;
 
         k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
 ;
