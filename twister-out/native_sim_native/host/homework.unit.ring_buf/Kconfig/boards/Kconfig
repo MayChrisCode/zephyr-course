@@ -1,0 +1,2 @@
+# Load Zephyr board Kconfig descriptions.
+osource "/home/vboxuser/demo/deps/zephyr/boards/native/native_sim/Kconfig"

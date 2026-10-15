@@ -1,0 +1,49 @@
+cmake:
+  application:
+    configuration-dir: '/home/vboxuser/demo/zephyr-course/tests/ring_buf'
+    source-dir: '/home/vboxuser/demo/zephyr-course/tests/ring_buf'
+  board:
+    name: 'native_sim'
+    path:
+     - '/home/vboxuser/demo/deps/zephyr/boards/native/native_sim'
+    qualifiers: 'native'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/vboxuser/demo/deps/zephyr/dts/bindings'
+    files:
+     - '/home/vboxuser/demo/deps/zephyr/boards/native/native_sim/native_sim.dts'
+    include-dirs:
+     - '/home/vboxuser/demo/deps/modules/hal/nxp/dts'
+     - '/home/vboxuser/demo/deps/modules/hal/stm32/dts'
+     - '/home/vboxuser/demo/deps/zephyr/include'
+     - '/home/vboxuser/demo/deps/zephyr/include/zephyr'
+     - '/home/vboxuser/demo/deps/zephyr/dts/common'
+     - '/home/vboxuser/demo/deps/zephyr/dts/vendor'
+     - '/home/vboxuser/demo/deps/zephyr/dts/rx'
+     - '/home/vboxuser/demo/deps/zephyr/dts/x86'
+     - '/home/vboxuser/demo/deps/zephyr/dts/xtensa'
+     - '/home/vboxuser/demo/deps/zephyr/dts/sparc'
+     - '/home/vboxuser/demo/deps/zephyr/dts/riscv'
+     - '/home/vboxuser/demo/deps/zephyr/dts/posix'
+     - '/home/vboxuser/demo/deps/zephyr/dts/arm64'
+     - '/home/vboxuser/demo/deps/zephyr/dts/arm'
+     - '/home/vboxuser/demo/deps/zephyr/dts/arc'
+     - '/home/vboxuser/demo/deps/zephyr/dts'
+  kconfig:
+    extra-user-files:
+     - '/home/vboxuser/demo/zephyr-course/twister-out/native_sim_native/host/homework.unit.ring_buf/twister/testsuite_extra.conf'
+    files:
+     - '/home/vboxuser/demo/deps/zephyr/boards/native/native_sim/native_sim_defconfig'
+     - '/home/vboxuser/demo/zephyr-course/tests/ring_buf/prj.conf'
+     - '/home/vboxuser/demo/zephyr-course/twister-out/native_sim_native/host/homework.unit.ring_buf/twister/testsuite_extra.conf'
+     - '/home/vboxuser/demo/zephyr-course/twister-out/native_sim_native/host/homework.unit.ring_buf/zephyr/misc/generated/extra_kconfig_options.conf'
+    user-files:
+     - '/home/vboxuser/demo/zephyr-course/tests/ring_buf/prj.conf'
+  toolchain:
+    name: 'host'
+    path: ''
+  zephyr:
+    version: '4.2.0'
+    zephyr-base: '/home/vboxuser/demo/deps/zephyr'
+version: '0.1.0'

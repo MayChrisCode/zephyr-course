@@ -1,0 +1,5 @@
+"cmsis_6":"/home/vboxuser/demo/deps/modules/hal/cmsis_6":"${ZEPHYR_CMSIS_6_CMAKE_DIR}"
+"hal_espressif":"/home/vboxuser/demo/deps/modules/hal/espressif":"/home/vboxuser/demo/deps/modules/hal/espressif/zephyr"
+"hal_nordic":"/home/vboxuser/demo/deps/modules/hal/nordic":"${ZEPHYR_HAL_NORDIC_CMAKE_DIR}"
+"hal_nxp":"/home/vboxuser/demo/deps/modules/hal/nxp":"${ZEPHYR_HAL_NXP_CMAKE_DIR}"
+"hal_stm32":"/home/vboxuser/demo/deps/modules/hal/stm32":"/home/vboxuser/demo/deps/modules/hal/stm32"
